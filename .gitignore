@@ -6,12 +6,16 @@
 # Generated CSS
 /static/css/output.css
 
-# Environment variables
+# Environment variables - ignore all .env files except .env.example
 .env*
+!.env.example
 
 # Node.js
 node_modules/
 npm-debug.log
+
+# Docker volumes
+postgres-data/
 
 # IDE files
 .idea/
