@@ -40,11 +40,11 @@ services:
       POSTGRES_HOST: db
       POSTGRES_PORT: 5432
       RUST_LOG: ${RUST_LOG:-lifeforce=debug,tower_http=debug}
-      # Allow connections from browser-sync
-      BROWSER_SYNC_PORT: 3001
+      BROWSER_SYNC_PORT: ${BROWSER_SYNC_PORT:-3001}
     ports:
-      - "${SERVER_PORT:-3000}:3000"
-      - "3001:3001"
+      - "${SERVER_PORT:-3000}:${SERVER_PORT:-3000}"
+      - "${BROWSER_SYNC_PORT:-3001}:${BROWSER_SYNC_PORT:-3001}"
+    command: ["/app/dev.sh", "${SERVER_PORT:-3000}"]
     volumes:
       - ./:/app
       - cargo-cache:/usr/local/cargo/registry
