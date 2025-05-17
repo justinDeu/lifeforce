@@ -7,11 +7,16 @@
 /static/css/output.css
 
 # Environment variables
-.env*
+.env
+# Allow .env.example to be committed
+# .env.example
 
 # Node.js
 node_modules/
 npm-debug.log
+
+# Docker volumes
+postgres-data/
 
 # IDE files
 .idea/
