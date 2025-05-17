@@ -4,9 +4,22 @@ WORKDIR /app
 
 # Install dependencies
 RUN apt-get update && \
-    apt-get install -y build-essential pkg-config libpq-dev libssl-dev curl nodejs npm && \
+    apt-get install -y build-essential pkg-config libpq-dev libssl-dev curl && \
     rm -rf /var/lib/apt/lists/* && \
     cargo install --locked cargo-watch@8.4.0
+
+# Install Node.js via nodesource
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g npm@latest && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy package files for npm install
+COPY package.json package-lock.json* ./
+
+# Install npm dependencies globally
+RUN npm install -g tailwindcss browser-sync concurrently && \
+    npm install
 
 # The dev.sh script will be our entrypoint
 COPY dev.sh /app/
