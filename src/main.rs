@@ -40,7 +40,11 @@ async fn main() {
         format!("postgres://{}:{}@{}:{}/{}", db_user, db_pass, db_host, db_port, db_name)
     });
     
-    tracing::info!("Using database URL: {}", database_url);
+    // Log database connection info without credentials
+    tracing::info!("Connecting to PostgreSQL at {}:{}/{}", 
+        std::env::var("POSTGRES_HOST").unwrap_or_else(|_| "localhost".to_string()),
+        std::env::var("POSTGRES_PORT").unwrap_or_else(|_| "5432".to_string()),
+        std::env::var("POSTGRES_DB").unwrap_or_else(|_| "lifeforce".to_string()));
 
     // Build the application router
     let app = routes::create_router();

@@ -6,10 +6,9 @@
 # Generated CSS
 /static/css/output.css
 
-# Environment variables
-.env
-# Allow .env.example to be committed
-# .env.example
+# Environment variables - ignore all .env files except .env.example
+.env*
+!.env.example
 
 # Node.js
 node_modules/
