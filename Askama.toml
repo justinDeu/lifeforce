@@ -1,0 +1,9 @@
+[general]
+# Template directory
+dir = "templates"
+# Extension for template files
+extension = "html"
+# Syntax highlighting
+syntax = "html"
+# Escape all rendered values by default
+escape = true

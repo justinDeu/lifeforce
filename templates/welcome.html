@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} | LifeForce{% endblock %}
+
+{% block content %}
+<div class="flex flex-col items-center justify-center space-y-8 py-12">
+    <div class="text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">
+            <span class="text-primary-400">Life</span><span class="text-accent-400">Force</span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl">
+            Your personal finance manager to track the forces of life: money, time, and health.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mt-8">
+        <div class="card">
+            <div class="text-primary-400 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <h2 class="text-xl font-bold mb-2">Money Management</h2>
+            <p class="text-gray-400 mb-4">
+                Track your finances, budget your expenses, and grow your wealth with powerful insights.
+            </p>
+            <a href="#" class="btn btn-primary inline-block">Get Started</a>
+        </div>
+
+        <div class="card">
+            <div class="text-accent-400 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <h2 class="text-xl font-bold mb-2">Time Tracking</h2>
+            <p class="text-gray-400 mb-4">
+                Coming soon: Manage your most valuable asset with time tracking and productivity insights.
+            </p>
+            <button class="btn btn-secondary inline-block opacity-75 cursor-not-allowed">Coming Soon</button>
+        </div>
+
+        <div class="card">
+            <div class="text-green-400 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+            </div>
+            <h2 class="text-xl font-bold mb-2">Health Monitoring</h2>
+            <p class="text-gray-400 mb-4">
+                Coming soon: Track your health metrics and wellness goals for a balanced lifestyle.
+            </p>
+            <button class="btn btn-secondary inline-block opacity-75 cursor-not-allowed">Coming Soon</button>
+        </div>
+    </div>
+
+    <div class="card w-full max-w-5xl mt-8" hx-get="/api/demo/account-summary" hx-trigger="load once">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">Try the Demo</h2>
+            <button class="btn btn-accent">
+                Refresh
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+            </button>
+        </div>
+        
+        <div class="bg-surface-800 rounded-lg p-6 animate-pulse">
+            <div class="flex items-center justify-between mb-4">
+                <div class="h-4 bg-surface-700 rounded w-1/4"></div>
+                <div class="h-4 bg-surface-700 rounded w-1/6"></div>
+            </div>
+            <div class="h-8 bg-surface-700 rounded w-1/3 mb-6"></div>
+            <div class="space-y-3">
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="h-4 bg-surface-700 rounded col-span-3"></div>
+                    <div class="h-4 bg-surface-700 rounded"></div>
+                </div>
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="h-4 bg-surface-700 rounded col-span-2"></div>
+                    <div class="h-4 bg-surface-700 rounded col-span-2"></div>
+                </div>
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="h-4 bg-surface-700 rounded col-span-1"></div>
+                    <div class="h-4 bg-surface-700 rounded col-span-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

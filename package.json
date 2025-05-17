@@ -1,0 +1,18 @@
+{
+  "name": "lifeforce",
+  "version": "0.1.0",
+  "description": "A personal finance and budget tracker",
+  "scripts": {
+    "build:css": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css",
+    "watch:css": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch",
+    "watch:server": "cargo watch -x run",
+    "watch:browser": "browser-sync start --proxy 'localhost:3000' --port 3001 --files 'templates/**/*.html,static/css/*.css,static/js/*.js'",
+    "dev": "concurrently \"npm run watch:css\" \"npm run watch:server\" \"npm run watch:browser\"",
+    "build": "npm run build:css && cargo build --release"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.2",
+    "concurrently": "^8.2.2",
+    "tailwindcss": "^3.4.0"
+  }
+}
