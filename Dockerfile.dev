@@ -11,15 +11,13 @@ RUN apt-get update && \
 # Install Node.js via nodesource
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs && \
-    npm install -g npm@latest && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy package files for npm install
 COPY package.json package-lock.json* ./
 
-# Install npm dependencies globally
-RUN npm install -g tailwindcss browser-sync concurrently && \
-    npm install
+# Install npm dependencies
+RUN npm install
 
 # The dev.sh script will be our entrypoint
 COPY dev.sh /app/
