@@ -6,7 +6,7 @@ WORKDIR /app
 RUN apt-get update && \
     apt-get install -y build-essential pkg-config libpq-dev libssl-dev curl nodejs npm && \
     rm -rf /var/lib/apt/lists/* && \
-    cargo install cargo-watch
+    cargo install --locked cargo-watch@8.4.0
 
 # The dev.sh script will be our entrypoint
 COPY dev.sh /app/

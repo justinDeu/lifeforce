@@ -1,13 +1,25 @@
 #!/bin/bash
 set -e
 
-# Ensure we're in the app directory
-cd /app
+# Check if we're running in Docker
+if [ -f "/.dockerenv" ]; then
+    echo "Running in Docker container"
+    # Docker-specific settings
+    HOST="0.0.0.0"
+else
+    echo "Running locally"
+    # Local settings
+    HOST="localhost"
+    
+    # Change to script directory for local execution
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    cd "$SCRIPT_DIR"
+fi
 
 # Check if cargo-watch is installed
 if ! command -v cargo-watch &> /dev/null; then
     echo "cargo-watch not found, installing..."
-    cargo install cargo-watch
+    cargo install --locked cargo-watch@8.4.0
 fi
 
 # Check if npm dependencies are installed
@@ -30,7 +42,7 @@ cargo watch -x 'run' -w src &
 npm run watch:css &
 
 # Start browser-sync for auto-refreshing on file changes
-node_modules/.bin/browser-sync start --proxy '0.0.0.0:3000' --port 3001 --host 0.0.0.0 --files 'templates/**/*.html,static/css/*.css,static/js/*.js' &
+node_modules/.bin/browser-sync start --proxy "${HOST}:3000" --port 3001 --files 'templates/**/*.html,static/css/*.css,static/js/*.js' &
 
 # Wait for all background processes
 wait
