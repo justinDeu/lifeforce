@@ -1,6 +1,7 @@
-use axum::{Router, routing::get, response::IntoResponse};
+use axum::{Router, routing::get};
 use askama::Template;
-use askama_axum::Response;
+
+use crate::templates::HtmlTemplate;
 
 pub fn router() -> Router {
     Router::new()
@@ -14,11 +15,11 @@ struct WelcomeTemplate {
     active_page: String,
 }
 
-async fn welcome() -> Response {
+async fn welcome() -> impl axum::response::IntoResponse {
     let template = WelcomeTemplate {
         title: "Welcome to LifeForce".to_string(),
         active_page: "dashboard".to_string(),
     };
     
-    template.into_response()
+    HtmlTemplate(template)
 }
