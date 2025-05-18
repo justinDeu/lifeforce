@@ -11,11 +11,13 @@ pub fn router() -> Router {
 #[template(path = "welcome.html")]
 struct WelcomeTemplate {
     title: String,
+    active_page: String,
 }
 
 async fn welcome() -> Response {
     let template = WelcomeTemplate {
         title: "Welcome to LifeForce".to_string(),
+        active_page: "dashboard".to_string(),
     };
     
     template.into_response()

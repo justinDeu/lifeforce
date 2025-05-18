@@ -5,30 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}LifeForce{% endblock %}</title>
     <link rel="stylesheet" href="/static/css/output.css">
+    <link rel="stylesheet" href="/static/css/sidebar.css">
     <script src="/static/js/htmx.min.js" defer></script>
+    <script src="/static/js/sidebar.js" defer></script>
 </head>
 <body class="bg-surface-950 text-gray-100 min-h-screen">
     <header class="bg-surface-900 border-b border-surface-800">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
+                    <button id="sidebar-toggle" class="md:hidden text-gray-300 hover:text-primary-400 mr-3">
+                        ☰
+                    </button>
                     <span class="text-primary-400 text-2xl font-bold">Life</span><span class="text-accent-400 text-2xl font-bold">Force</span>
                 </div>
-                <nav class="flex space-x-6">
-                    <a href="/" class="text-gray-300 hover:text-primary-400 transition-colors">Dashboard</a>
-                    <a href="#" class="text-gray-300 hover:text-primary-400 transition-colors">Accounts</a>
-                    <a href="#" class="text-gray-300 hover:text-primary-400 transition-colors">Transactions</a>
-                    <a href="#" class="text-gray-300 hover:text-primary-400 transition-colors">Budgets</a>
-                </nav>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-primary-400 transition-colors">Settings</a>
+                </div>
             </div>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 py-8">
-        {% block content %}{% endblock %}
-    </main>
+    <div class="flex min-h-screen">
+        <!-- Sidebar overlay for mobile -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 sidebar-overlay"></div>
+        
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            {% include "components/sidebar.html" %}
+        </div>
 
-    <footer class="bg-surface-900 border-t border-surface-800 py-6 mt-12">
+        <!-- Main content -->
+        <main class="flex-1 p-4 md:p-8 mt-0 w-full">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <footer class="bg-surface-900 border-t border-surface-800 py-6">
         <div class="container mx-auto px-4 text-center text-gray-400">
             <p>LifeForce &copy; 2025 - A personal finance manager</p>
         </div>
