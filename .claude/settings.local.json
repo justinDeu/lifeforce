@@ -6,7 +6,12 @@
       "Bash(cargo check:*)",
       "Bash(cargo run:*)",
       "WebFetch(domain:docs.rs)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_resize",
+      "Bash(ls:*)"
     ],
     "deny": []
   }

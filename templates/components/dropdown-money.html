@@ -1,0 +1,59 @@
+{% extends "components/dropdown-base.html" %}
+
+{% block dropdown_items %}
+<a href="/money/accounts" class="dropdown-item">
+    <div class="dropdown-icon bg-primary-500/10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+        </svg>
+    </div>
+    <div>
+        <span class="dropdown-item-title">Accounts</span>
+        <span class="dropdown-item-desc">View and manage your accounts</span>
+    </div>
+</a>
+<a href="/money/transactions" class="dropdown-item">
+    <div class="dropdown-icon bg-primary-500/10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9l-7 7-3-3" />
+        </svg>
+    </div>
+    <div>
+        <span class="dropdown-item-title">Transactions</span>
+        <span class="dropdown-item-desc">Review your spending history</span>
+    </div>
+</a>
+<a href="/money/budgets" class="dropdown-item">
+    <div class="dropdown-icon bg-primary-500/10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+    </div>
+    <div>
+        <span class="dropdown-item-title">Budgets</span>
+        <span class="dropdown-item-desc">Set up and track your budgets</span>
+    </div>
+</a>
+<a href="/money/reports" class="dropdown-item">
+    <div class="dropdown-icon bg-primary-500/10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+    </div>
+    <div>
+        <span class="dropdown-item-title">Reports</span>
+        <span class="dropdown-item-desc">View financial reports and insights</span>
+    </div>
+</a>
+<a href="/money/goals" class="dropdown-item">
+    <div class="dropdown-icon bg-primary-500/10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+    </div>
+    <div>
+        <span class="dropdown-item-title">Goals</span>
+        <span class="dropdown-item-desc">Set and track financial goals</span>
+    </div>
+</a>
+{% endblock %}

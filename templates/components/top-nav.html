@@ -1,0 +1,250 @@
+<!-- Top Navigation Bar -->
+<header class="bg-surface-900 border-b border-surface-800 sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+        <!-- Main Navigation -->
+        <div class="flex justify-between items-center h-16">
+            <!-- Left: Logo -->
+            <div class="flex items-center">
+                <span class="text-primary-400 text-2xl font-bold">Life</span><span class="text-accent-400 text-2xl font-bold">Force</span>
+            </div>
+            
+            <!-- Center: Main Navigation (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-1">
+                <a href="/" class="nav-link {% if active_page == "dashboard" %}active{% endif %}">
+                    <svg class="h-5 w-5" aria-hidden="true">
+                        <use xlink:href="/static/img/icons.svg#dashboard"></use>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <div class="nav-item-dropdown">
+                    <a href="/money" class="nav-link {% if active_page == "money" %}active{% endif %}">
+                        <svg class="h-5 w-5" aria-hidden="true">
+                            <use xlink:href="/static/img/icons.svg#money"></use>
+                        </svg>
+                        <span>Money</span>
+                    </a>
+                    {% let title = "Money" %}
+                    {% let subtitle = "Manage your finances" %}
+                    {% let title_color = "text-primary-400" %}
+                    {% let panel_class = "money-dropdown" %}
+                    {% include "components/dropdown-money.html" %}
+                </div>
+                <div class="nav-item-dropdown">
+                    <a href="/time" class="nav-link {% if active_page == "time" %}active{% endif %}">
+                        <svg class="h-5 w-5" aria-hidden="true">
+                            <use xlink:href="/static/img/icons.svg#time"></use>
+                        </svg>
+                        <span>Time</span>
+                    </a>
+                    {% let title = "Time" %}
+                    {% let subtitle = "Track and optimize your time" %}
+                    {% let title_color = "text-accent-400" %}
+                    {% let panel_class = "time-dropdown" %}
+                    {% include "components/dropdown-time.html" %}
+                </div>
+                <div class="nav-item-dropdown">
+                    <a href="/health" class="nav-link {% if active_page == "health" %}active{% endif %}">
+                        <svg class="h-5 w-5" aria-hidden="true">
+                            <use xlink:href="/static/img/icons.svg#health"></use>
+                        </svg>
+                        <span>Health</span>
+                    </a>
+                    {% let title = "Health" %}
+                    {% let subtitle = "Monitor your well-being" %}
+                    {% let title_color = "text-green-400" %}
+                    {% let panel_class = "health-dropdown" %}
+                    {% include "components/dropdown-health.html" %}
+                </div>
+            </nav>
+            
+            <!-- Right: User/Settings -->
+            <div class="flex items-center space-x-3">
+                <a href="#" class="nav-icon-btn">
+                    <svg class="h-5 w-5" aria-hidden="true">
+                        <use xlink:href="/static/img/icons.svg#settings"></use>
+                    </svg>
+                </a>
+                <div class="relative ml-3">
+                    <button id="user-menu-button" class="flex text-sm bg-surface-800 rounded-full hover:bg-surface-700 transition-colors p-1" aria-expanded="false">
+                        <span class="sr-only">Open user menu</span>
+                        <div class="h-8 w-8 rounded-full bg-primary-800 flex items-center justify-center text-white font-medium">JD</div>
+                    </button>
+                </div>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-surface-800 transition-colors" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Navigation Menu -->
+<div id="mobile-menu" class="md:hidden bg-surface-900 fixed inset-0 z-40 transform transition-transform duration-300 translate-x-full">
+    <div class="h-full flex flex-col">
+        <div class="p-4 flex justify-between items-center border-b border-surface-800">
+            <div>
+                <span class="text-primary-400 text-2xl font-bold">Life</span><span class="text-accent-400 text-2xl font-bold">Force</span>
+            </div>
+            <button id="close-mobile-menu" class="p-2 rounded-md hover:bg-surface-800 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="flex-1 overflow-y-auto py-4 px-6">
+            <nav class="flex flex-col space-y-4">
+                <a href="/" class="mobile-nav-link {% if active_page == "dashboard" %}active{% endif %}">
+                    <svg class="h-6 w-6" aria-hidden="true">
+                        <use xlink:href="/static/img/icons.svg#dashboard"></use>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <div class="mobile-menu-category">
+                    <button class="mobile-menu-category-btn" aria-expanded="false">
+                        <div class="flex items-center">
+                            <svg class="h-6 w-6 text-primary-400" aria-hidden="true">
+                                <use xlink:href="/static/img/icons.svg#money"></use>
+                            </svg>
+                            <span class="text-primary-400">Money</span>
+                        </div>
+                        <svg class="h-4 w-4 transform transition-transform duration-300" aria-hidden="true">
+                            <use xlink:href="/static/img/icons.svg#chevron-down"></use>
+                        </svg>
+                    </button>
+                    <div class="mobile-submenu hidden pl-9 mt-2 space-y-2">
+                        <a href="/money/accounts" class="block py-2 text-gray-300 hover:text-primary-400">Accounts</a>
+                        <a href="/money/transactions" class="block py-2 text-gray-300 hover:text-primary-400">Transactions</a>
+                        <a href="/money/budgets" class="block py-2 text-gray-300 hover:text-primary-400">Budgets</a>
+                        <a href="/money/reports" class="block py-2 text-gray-300 hover:text-primary-400">Reports</a>
+                        <a href="/money/goals" class="block py-2 text-gray-300 hover:text-primary-400">Goals</a>
+                    </div>
+                </div>
+                <div class="mobile-menu-category">
+                    <button class="mobile-menu-category-btn" aria-expanded="false">
+                        <div class="flex items-center">
+                            <svg class="h-6 w-6 text-accent-400" aria-hidden="true">
+                                <use xlink:href="/static/img/icons.svg#time"></use>
+                            </svg>
+                            <span class="text-accent-400">Time</span>
+                        </div>
+                        <svg class="h-4 w-4 transform transition-transform duration-300" aria-hidden="true">
+                            <use xlink:href="/static/img/icons.svg#chevron-down"></use>
+                        </svg>
+                    </button>
+                    <div class="mobile-submenu hidden pl-9 mt-2 space-y-2">
+                        <a href="/time/tracking" class="block py-2 text-gray-300 hover:text-accent-400">Tracking</a>
+                        <a href="/time/projects" class="block py-2 text-gray-300 hover:text-accent-400">Projects</a>
+                        <a href="/time/calendar" class="block py-2 text-gray-300 hover:text-accent-400">Calendar</a>
+                        <a href="/time/pomodoro" class="block py-2 text-gray-300 hover:text-accent-400">Pomodoro</a>
+                        <a href="/time/reports" class="block py-2 text-gray-300 hover:text-accent-400">Reports</a>
+                    </div>
+                </div>
+                <div class="mobile-menu-category">
+                    <button class="mobile-menu-category-btn" aria-expanded="false">
+                        <div class="flex items-center">
+                            <svg class="h-6 w-6 text-green-400" aria-hidden="true">
+                                <use xlink:href="/static/img/icons.svg#health"></use>
+                            </svg>
+                            <span class="text-green-400">Health</span>
+                        </div>
+                        <svg class="h-4 w-4 transform transition-transform duration-300" aria-hidden="true">
+                            <use xlink:href="/static/img/icons.svg#chevron-down"></use>
+                        </svg>
+                    </button>
+                    <div class="mobile-submenu hidden pl-9 mt-2 space-y-2">
+                        <a href="/health/vitals" class="block py-2 text-gray-300 hover:text-green-400">Vitals</a>
+                        <a href="/health/fitness" class="block py-2 text-gray-300 hover:text-green-400">Fitness</a>
+                        <a href="/health/nutrition" class="block py-2 text-gray-300 hover:text-green-400">Nutrition</a>
+                        <a href="/health/sleep" class="block py-2 text-gray-300 hover:text-green-400">Sleep</a>
+                        <a href="/health/mood" class="block py-2 text-gray-300 hover:text-green-400">Mood</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-surface-800">
+            <a href="/settings" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-surface-800 transition-colors">
+                <svg class="h-6 w-6" aria-hidden="true">
+                    <use xlink:href="/static/img/icons.svg#settings"></use>
+                </svg>
+                <span>Settings</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu && closeMobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.classList.add('overflow-hidden');
+            });
+            
+            closeMobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.classList.remove('overflow-hidden');
+            });
+        }
+        
+        // Mobile submenu toggles
+        document.querySelectorAll('.mobile-menu-category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const submenu = this.nextElementSibling;
+                const chevron = this.querySelector('svg:last-child');
+                
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                
+                if (isExpanded) {
+                    submenu.classList.add('hidden');
+                    chevron.classList.remove('rotate-180');
+                } else {
+                    submenu.classList.remove('hidden');
+                    chevron.classList.add('rotate-180');
+                }
+            });
+        });
+        
+        // Add delay to dropdown panels to improve UX
+        const dropdowns = document.querySelectorAll('.nav-item-dropdown');
+        
+        if (dropdowns) {
+            let hoverTimeout;
+            
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('.nav-link');
+                const panel = dropdown.querySelector('.dropdown-panel');
+                
+                // Show on hover with a slight delay
+                dropdown.addEventListener('mouseenter', function() {
+                    clearTimeout(hoverTimeout);
+                    dropdowns.forEach(d => {
+                        if (d !== dropdown) {
+                            d.querySelector('.dropdown-panel').style.opacity = '0';
+                            d.querySelector('.dropdown-panel').style.visibility = 'hidden';
+                        }
+                    });
+                    panel.style.opacity = '1';
+                    panel.style.visibility = 'visible';
+                });
+                
+                // Hide on mouseleave with a slight delay
+                dropdown.addEventListener('mouseleave', function() {
+                    hoverTimeout = setTimeout(() => {
+                        panel.style.opacity = '0';
+                        panel.style.visibility = 'hidden';
+                    }, 100);
+                });
+            });
+        }
+    });
+</script>

@@ -1,0 +1,11 @@
+<!-- Generic dropdown structure that all specific dropdowns can extend -->
+<div class="dropdown-panel {{ panel_class }}">
+    <div class="dropdown-header">
+        <span class="{{ title_color }} font-medium text-lg">{{ title }}</span>
+        <p class="text-sm text-gray-400">{{ subtitle }}</p>
+    </div>
+    <div class="dropdown-items">
+        <!-- Items will be added by the specific dropdown implementations -->
+        {% block dropdown_items %}{% endblock %}
+    </div>
+</div>
