@@ -7,7 +7,7 @@
     "watch:css": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch",
     "watch:server": "cargo watch -x run",
     "watch:browser": "browser-sync start --proxy \"${SERVER_HOST:-localhost}:${SERVER_PORT:-3000}\" --port ${BROWSER_SYNC_PORT:-3001} --files 'templates/**/*.html,static/css/*.css,static/js/*.js'",
-    "dev": "concurrently \"npm run watch:css\" \"npm run watch:server\" \"npm run watch:browser\"",
+    "dev": "concurrently \"npm run watch:css\" \"npm run watch:server\"",
     "build": "npm run build:css && cargo build --release"
   },
   "devDependencies": {

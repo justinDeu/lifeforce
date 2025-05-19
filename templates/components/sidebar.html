@@ -1,71 +1,71 @@
 <aside class="sidebar bg-surface-900 w-64 h-screen border-r border-surface-800 overflow-y-auto fixed md:sticky top-0 transition-transform duration-300 ease-in-out z-30">
     <nav class="p-4 space-y-2">
-        <a href="/" class="block p-2 rounded hover:bg-surface-800 {% if active_page == 'dashboard' %}text-primary-400{% else %}text-gray-300 hover:text-primary-400{% endif %} transition-colors">
+        <a href="/" class="block p-2 rounded hover:bg-surface-800 {% if active_page == "dashboard" %}text-primary-400{% else %}text-gray-300 hover:text-primary-400{% endif %} transition-colors">
             Dashboard
         </a>
 
         <!-- Money Section -->
         <div class="sidebar-section" data-section="money">
-            <button 
+            <button
                 class="sidebar-section-header w-full text-left"
                 aria-expanded="false"
                 aria-controls="money-content">
                 <div class="flex items-center justify-between p-2 rounded hover:bg-surface-800 text-primary-400">
                     <span>Money</span>
-                    <span class="transition-transform duration-300">&gt;</span>
+                    <span class="transition-transform duration-300">----</span>
                 </div>
             </button>
             <div id="money-content" class="sidebar-section-content overflow-hidden max-h-0 transition-all duration-300">
                 <div class="pl-4 py-1 space-y-1">
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-primary-400 transition-colors {% if active_page == 'accounts' %}text-primary-400{% endif %}">Accounts</a>
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-primary-400 transition-colors {% if active_page == 'transactions' %}text-primary-400{% endif %}">Transactions</a>
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-primary-400 transition-colors {% if active_page == 'budgets' %}text-primary-400{% endif %}">Budgets</a>
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-primary-400 transition-colors {% if active_page == 'reports' %}text-primary-400{% endif %}">Reports</a>
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-primary-400 transition-colors {% if active_page == 'goals' %}text-primary-400{% endif %}">Goals</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-primary-400 transition-colors {% if active_page == "accounts" %}text-primary-400{% endif %}">Accounts</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-primary-400 transition-colors {% if active_page == "transactions" %}text-primary-400{% endif %}">Transactions</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-primary-400 transition-colors {% if active_page == "budgets" %}text-primary-400{% endif %}">Budgets</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-primary-400 transition-colors {% if active_page == "reports" %}text-primary-400{% endif %}">Reports</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-primary-400 transition-colors {% if active_page == "goals" %}text-primary-400{% endif %}">Goals</a>
                 </div>
             </div>
         </div>
 
         <!-- Time Section -->
         <div class="sidebar-section" data-section="time">
-            <button 
+            <button
                 class="sidebar-section-header w-full text-left"
                 aria-expanded="false"
                 aria-controls="time-content">
                 <div class="flex items-center justify-between p-2 rounded hover:bg-surface-800 text-accent-400">
                     <span>Time</span>
-                    <span class="transition-transform duration-300">&gt;</span>
+                    <span class="transition-transform duration-300">---</span>
                 </div>
             </button>
             <div id="time-content" class="sidebar-section-content overflow-hidden max-h-0 transition-all duration-300">
                 <div class="pl-4 py-1 space-y-1">
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-accent-400 transition-colors {% if active_page == 'time-tracking' %}text-accent-400{% endif %}">Tracking</a>
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-accent-400 transition-colors {% if active_page == 'projects' %}text-accent-400{% endif %}">Projects</a>
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-accent-400 transition-colors {% if active_page == 'calendar' %}text-accent-400{% endif %}">Calendar</a>
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-accent-400 transition-colors {% if active_page == 'pomodoro' %}text-accent-400{% endif %}">Pomodoro</a>
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-accent-400 transition-colors {% if active_page == 'time-reports' %}text-accent-400{% endif %}">Reports</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-accent-400 transition-colors {% if active_page == "time-tracking" %}text-accent-400{% endif %}">Tracking</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-accent-400 transition-colors {% if active_page == "projects" %}text-accent-400{% endif %}">Projects</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-accent-400 transition-colors {% if active_page == "calendar" %}text-accent-400{% endif %}">Calendar</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-accent-400 transition-colors {% if active_page == "pomodoro" %}text-accent-400{% endif %}">Pomodoro</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-accent-400 transition-colors {% if active_page == "time-reports" %}text-accent-400{% endif %}">Reports</a>
                 </div>
             </div>
         </div>
 
         <!-- Health Section -->
         <div class="sidebar-section" data-section="health">
-            <button 
+            <button
                 class="sidebar-section-header w-full text-left"
                 aria-expanded="false"
                 aria-controls="health-content">
                 <div class="flex items-center justify-between p-2 rounded hover:bg-surface-800 text-green-400">
                     <span>Health</span>
-                    <span class="transition-transform duration-300">&gt;</span>
+                    <span class="transition-transform duration-300">---</span>
                 </div>
             </button>
             <div id="health-content" class="sidebar-section-content overflow-hidden max-h-0 transition-all duration-300">
                 <div class="pl-4 py-1 space-y-1">
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-green-400 transition-colors {% if active_page == 'vitals' %}text-green-400{% endif %}">Vitals</a>
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-green-400 transition-colors {% if active_page == 'fitness' %}text-green-400{% endif %}">Fitness</a>
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-green-400 transition-colors {% if active_page == 'nutrition' %}text-green-400{% endif %}">Nutrition</a>
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-green-400 transition-colors {% if active_page == 'sleep' %}text-green-400{% endif %}">Sleep</a>
-                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-green-400 transition-colors {% if active_page == 'mood' %}text-green-400{% endif %}">Mood</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-green-400 transition-colors {% if active_page == "vitals" %}text-green-400{% endif %}">Vitals</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-green-400 transition-colors {% if active_page == "fitness" %}text-green-400{% endif %}">Fitness</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-green-400 transition-colors {% if active_page == "nutrition" %}text-green-400{% endif %}">Nutrition</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-green-400 transition-colors {% if active_page == "sleep" %}text-green-400{% endif %}">Sleep</a>
+                    <a href="#" class="block p-2 rounded text-gray-300 hover:text-green-400 transition-colors {% if active_page == "mood" %}text-green-400{% endif %}">Mood</a>
                 </div>
             </div>
         </div>
